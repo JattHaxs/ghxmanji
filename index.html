@@ -140,75 +140,113 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .toast.s{opacity:1;transform:translate(-50%,0)}
 .rv{opacity:0;transform:translateY(30px);transition:.8s}.rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* ── v2 polish ── */
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(55% 40% at 90% 0,rgba(124,92,255,.14),transparent),radial-gradient(50% 40% at 0 100%,rgba(0,245,255,.09),transparent);pointer-events:none;z-index:0}
+body::after{content:"";position:fixed;inset:0;opacity:.05;pointer-events:none;z-index:1;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
+section,footer{z-index:2}
+section{padding:130px 0}
+.tag::before{content:"";display:inline-block;width:36px;height:1px;background:var(--cyan);vertical-align:middle;margin-right:14px}
+h2{font-weight:700;letter-spacing:-.03em}
+.hero-t{font-weight:700;font-size:clamp(38px,7.4vw,106px);letter-spacing:-.04em}
+#hero::after{background:radial-gradient(ellipse at 62% 50%,transparent 35%,var(--void) 95%),repeating-linear-gradient(0deg,rgba(0,245,255,.025) 0 1px,transparent 1px 4px)}
+nav li a.on{color:var(--cyan)}
+.hud{position:absolute;right:28px;bottom:26px;z-index:2;text-align:right;font:400 10px 'JetBrains Mono';letter-spacing:.2em;color:var(--muted);line-height:2;border-right:1px solid var(--cyan);padding-right:14px}
+.hud b{color:var(--cyan);font-weight:400}
+@media(max-width:700px){.hud{display:none}}
+.mq{overflow:hidden;border-block:1px solid var(--line);padding:20px 0;background:rgba(0,245,255,.025);position:relative;z-index:2}
+.mq div{display:flex;width:max-content;white-space:nowrap;animation:mq 32s linear infinite;font:400 12px 'JetBrains Mono';letter-spacing:.3em;color:var(--muted)}
+.mq span,.mq b{margin-right:56px}.mq b{color:var(--cyan);font-weight:400}
+@keyframes mq{to{transform:translateX(-50%)}}
+.card,.cell,.pn,.links a{background:linear-gradient(160deg,rgba(22,27,32,.85),rgba(10,12,15,.85));backdrop-filter:blur(8px)}
+.card{will-change:transform}
+.cell .tg{display:block;margin-top:18px;font:400 10px 'JetBrains Mono';letter-spacing:.18em;color:var(--dim);text-transform:uppercase}
+.pipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:34px}
+.pn{position:relative;padding:34px 30px;border:1px solid var(--line);transition:.35s}
+.pn:hover{border-color:var(--cyan);box-shadow:0 0 40px rgba(0,245,255,.1)}
+.pn:not(:last-child)::after{content:"→";position:absolute;right:-27px;top:50%;color:var(--cyan);font:18px 'JetBrains Mono'}
+@media(max-width:700px){.pn::after{display:none}}
+.ic{width:48px;height:48px;border:1px solid var(--cyan);display:grid;place-items:center;font:700 15px 'Unbounded';color:var(--cyan);box-shadow:inset 0 0 18px rgba(0,245,255,.15)}
+.pn small{display:block;margin:22px 0 6px;font:400 10px 'JetBrains Mono';letter-spacing:.25em;color:var(--dim)}
+.pn h3{font:600 22px 'Unbounded'}.pn p{color:var(--muted);font-size:14px;margin:8px 0 24px}
+.sb{margin-top:14px}.sb span{display:flex;justify-content:space-between;font:400 10px 'JetBrains Mono';letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
+.sb i{display:block;height:2px;background:var(--deep);margin-top:7px}
+.sb u{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--violet));box-shadow:0 0 10px rgba(0,245,255,.5);transition:width 1.5s cubic-bezier(.2,.8,.2,1)}
+.in .sb u{width:var(--w)}
+.links.big{margin-top:0;gap:20px}
+.links.big a{flex-wrap:wrap;align-items:center;padding:34px 32px}
+.links.big a:hover{padding-left:40px;box-shadow:0 0 40px rgba(0,245,255,.1)}
+.links.big .pl{font:600 20px 'Unbounded';letter-spacing:.04em}
+.links.big small{flex-basis:100%;margin-top:10px;color:var(--muted);font:400 13px 'Inter';letter-spacing:0}
 </style>
 </head>
 <body>
 <div id="ld"><div><b>DECRYPTING VAULT...</b><i></i></div></div>
+<script>setTimeout(function(){var l=document.getElementById("ld");if(l)l.classList.add("x")},2500)</script>
 <div id="pg"></div><div class="cur"></div><div class="cur2"></div>
 
 <nav id="nav"><div class="wrap">
 <a href="#top" class="logo">GHXMAN'S<span>/</span>VAULT</a>
-<ul><li><a href="#reel">Reel</a></li><li><a href="#work">Work</a></li><li><a href="#services">Services</a></li><li><a href="#process">Process</a></li></ul>
-<a href="#contact" class="btn">Hire Me</a></div></nav>
+<ul><li> <!--<a href="#reel">Reel</a>--></li><li><a href="#work">Work</a></li><li><a href="#services">Services</a></li><li><a href="#pipeline">Pipeline</a></li><li><a href="#process">Process</a></li></ul>
+<a href="#contact" class="btn">Start a Project</a></div></nav>
 
 <header id="hero"><canvas id="cv"></canvas>
 <div class="wrap" id="top">
-<div class="tag">// 3D ANIMATION · MOTION GRAPHICS · VFX</div>
+<div class="tag">// 3D · MOTION · EDITING</div>
 <h1 class="hero-t">I BUILD<br><span class="glitch" data-t="WORLDS">WORLDS</span><br><span class="o">IN MOTION.</span></h1>
-<p class="hero-p">Cinematic 3D and motion design for brands, creators and studios who refuse to look like everyone else. Welcome to the vault.</p>
+<p class="hero-p">Cinematic 3D, motion design and editing, built end to end in Blender, After Effects and Premiere Pro for brands and creators who refuse to give up their unique identity and refuse to look like everyone else using AI Slop.</p>
 <div class="cta"><a href="#work" class="btn f">Enter The Vault</a><a href="#contact" class="btn">Start a Project</a></div>
 <div class="stats">
 <div><b data-n="50" data-s="+">0</b><span>Projects</span></div>
 <div><b data-n="20" data-s="+">0</b><span>Happy Clients</span></div>
 <div><b data-n="5" data-s="M+">0</b><span>Views Generated</span></div>
 <div><b data-n="48" data-s="h">0</b><span>Fast Turnaround</span></div>
-</div></div><div class="sc">SCROLL ↓</div></header>
+</div></div><div class="hud"><div>TC <b id="tc">00:00:00:00</b></div><div>BLENDER · AE · PREMIERE</div><div><b>●</b> RENDER 100%</div></div><div class="sc">SCROLL ↓</div></header>
+<div class="mq"><div id="mqi"></div></div>
 
-<section id="reel"><div class="wrap rv">
+<!--<section id="reel"><div class="wrap rv">
 <div class="tag">// 01 — SHOWREEL</div><h2>THE <em>2026</em> REEL</h2>
 <div class="reel" id="reelBox" data-i="reel"><div class="ph"></div><img id="reelImg" alt="" hidden>
 <i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
 <div class="rec">REEL 2026</div>
 <div class="play"><span><svg viewBox="0 0 24 24"><path d="M5 3l16 9-16 9z"/></svg></span></div></div>
-</div></section>
+</div></section> -->
 
-<section id="work"><div class="wrap rv">
-<div class="tag">// 02 — SELECTED WORK</div><h2>THE <em>ARCHIVE</em></h2>
+<!--<section id="work"><div class="wrap rv">
+<div class="tag">// 01 — SELECTED WORK</div><h2>THE <em>ARCHIVE</em></h2>
 <div class="filters" id="flt"></div><div class="grid" id="grid"></div>
-</div></section>
+</div></section> -->
 
 <section id="services"><div class="wrap rv">
-<div class="tag">// 03 — CAPABILITIES</div><h2>WHAT I <em>DELIVER</em></h2>
+<div class="tag">// 01 — CAPABILITIES</div><h2>WHAT I <em>DELIVER</em></h2>
 <div class="cols">
-<div class="cell"><div class="n">01</div><h3>3D Animation</h3><p>Product shots, characters, stylised worlds and cinematic scenes rendered with obsessive polish.</p></div>
-<div class="cell"><div class="n">02</div><h3>Motion Graphics</h3><p>Logo stings, explainers, UI animation and kinetic typography built to hold attention.</p></div>
-<div class="cell"><div class="n">03</div><h3>Short-Form Content</h3><p>Vertical, hook-first videos engineered for Shorts, Reels and TikTok retention.</p></div>
-<div class="cell"><div class="n">04</div><h3>VFX &amp; Compositing</h3><p>Seamless integration, simulations and finishing touches that sell the illusion.</p></div></div>
-<div class="tools"><span>BLENDER</span><span>AFTER EFFECTS</span><span>DAVINCI RESOLVE</span><span>SUBSTANCE</span><span>PREMIERE</span></div>
+<div class="cell"><div class="n">01</div><h3>3D &amp; Animation</h3><p>Product shots, characters, stylised worlds and cinematic scenes, from modelling to final render.</p><span class="tg">Blender</span></div>
+<div class="cell"><div class="n">02</div><h3>Motion &amp; VFX</h3><p>Logo stings, explainers, kinetic typography, compositing and effects that sell the illusion.</p><span class="tg">After Effects · Blender</span></div>
+<div class="cell"><div class="n">03</div><h3>Editing &amp; Finishing</h3><p>Pacing, sound, colour and short-form cuts for ads, trailers, Shorts and Reels.</p><span class="tg">Premiere Pro</span></div></div>
+</div></section>
+
+<section id="pipeline"><div class="wrap rv">
+<div class="tag">// 02 — FULL-STACK PIPELINE</div><h2>THREE TOOLS. <em>ONE PIPELINE.</em></h2>
+<div class="pipe" id="pipe"></div>
 </div></section>
 
 <section id="process"><div class="wrap rv">
-<div class="tag">// 04 — WORKFLOW</div><h2>HOW WE <em>WORK</em></h2>
+<div class="tag">// 03 — WORKFLOW</div><h2>HOW WE <em>WORK</em></h2>
 <div class="cols">
-<div class="cell"><div class="n">STEP 01</div><h3>Brief</h3><p>You share goals, references and deadline. I reply within 24 hours.</p></div>
+<div class="cell"><div class="n">STEP 01</div><h3>Brief</h3><p>You share goals, references and deadline. I reply within a few hours.</p></div>
 <div class="cell"><div class="n">STEP 02</div><h3>Concept</h3><p>Storyboard and style frames so you approve the look before production.</p></div>
 <div class="cell"><div class="n">STEP 03</div><h3>Production</h3><p>Modelling, animation and rendering with progress previews along the way.</p></div>
 <div class="cell"><div class="n">STEP 04</div><h3>Delivery</h3><p>Revisions, final export in every format you need, on time.</p></div></div>
 </div></section>
 
 <section id="contact"><div class="wrap rv"><div class="ct">
-<div><div class="tag">// 05 — TRANSMISSION</div><h2>LET'S <em>BUILD</em> IT</h2>
+<div><div class="tag">// 04 — TRANSMISSION</div><h2>LET'S <em>BUILD</em> IT</h2>
 <div class="avail">AVAILABLE FOR NEW PROJECTS</div>
-<p style="color:var(--muted);max-width:420px">Tell me about your project. Expect a reply within 24 hours.</p>
-<div class="links" id="soc"></div></div>
-<form id="f"><input name="name" placeholder="Your name" required><input name="email" type="email" placeholder="Email" required>
-<select name="type"><option>3D Animation</option><option>Motion Graphics</option><option>Short-Form Content</option><option>Other</option></select>
-<input name="budget" placeholder="Budget range (optional)">
-<textarea name="msg" placeholder="Describe your project..." required></textarea>
-<button class="btn f" type="submit">Send Message →</button></form>
+<p style="color:var(--muted);max-width:420px">Portfolio Videos are Uploaded on Instagram and Upwork. Message me on Instagram or hire me directly through Upwork. Expect a reply within a few hours.</p></div>
+<div class="links big" id="soc"></div>
 </div></div></section>
 
-<footer><div class="wrap"><span>© <span id="yr"></span> GHXMAN'S VAULT</span><span>ALL RIGHTS RESERVED</span><a href="#top">BACK TO TOP ↑</a></div></footer>
+<footer><div class="wrap"><span>© <span id="yr"></span> GHXMAN'S VAULT: powered and Owned by Mohammad E.</span><span>ALL RIGHTS RESERVED</span><a href="#top">BACK TO TOP ↑</a></div></footer>
 
 <div id="md"><div class="box"><div class="fr" id="fr"></div>
 <div class="mh"><div><h3 id="mt"></h3><p id="mp"></p></div>
@@ -218,19 +256,25 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <script>
 /* ════════ EDIT THIS SECTION ONLY ════════ */
 const CONFIG={
-  email:"your@email.com",                        // contact form sends here
-  formspree:"",                                  // optional: https://formspree.io/f/xxxx (leave "" to use email app)
-  socials:[["INSTAGRAM","https://instagram.com/yourname"],["YOUTUBE","https://youtube.com/@yourname"],["BEHANCE","https://behance.net/yourname"]],
+  socials:[["INSTAGRAM","https://instagram.com/mghxman/","Quick questions, collabs and short-form work"],["UPWORK","https://www.upwork.com/freelancers/ghxman","Contracts and larger projects with protected payments"]],
   reel:{url:"",thumb:""}                         // showreel link + optional thumbnail image URL
 };
+/* software bars: [name, stage, description, [[skill, level 0-100]...], icon letters] — set levels honestly */
+const PIPE=[
+ ["Blender","STAGE 01","Model, shade, animate and render the 3D world.",[["Modelling",85],["Shading & Lighting",80],["Animation",80],["Rendering",85]],"Bl"],
+ ["After Effects","STAGE 02","Composite, animate and polish every frame.",[["Motion Design",88],["Compositing",80],["Kinetic Type",85],["Expressions",65]],"Ae"],
+ ["Premiere Pro","STAGE 03","Cut, sound-design, grade and deliver.",[["Editing",90],["Color Grading",75],["Sound Design",75],["Export & Delivery",90]],"Pr"]
+];
 /* video url: YouTube, Vimeo, Google Drive share link, Dropbox, or direct .mp4 link
    thumb: optional image URL   preview: optional short .mp4 that plays on card hover
    cat: any category name (filters are created automatically) */
 const PROJECTS=[
   {title:"Project One",desc:"Short description of what this piece is and your role.",cat:"3D",year:"2026",url:"",thumb:"",preview:""},
-  {title:"Project Two",desc:"Short description of what this piece is and your role.",cat:"Motion Graphics",year:"2026",url:"",thumb:"",preview:""},
-  {title:"Project Three",desc:"Short description of what this piece is and your role.",cat:"3D",year:"2025",url:"",thumb:"",preview:""},
-  {title:"Project Four",desc:"Short description of what this piece is and your role.",cat:"Shorts",year:"2025",url:"",thumb:"",preview:""}
+  {title:"Project Two",desc:"Short description of what this piece is and your role.",cat:"Motion",year:"2026",url:"",thumb:"",preview:""},
+  {title:"Project Three",desc:"Short description of what this piece is and your role.",cat:"Editing",year:"2026",url:"",thumb:"",preview:""},
+  {title:"Project Four",desc:"Short description of what this piece is and your role.",cat:"3D",year:"2025",url:"",thumb:"",preview:""},
+  {title:"Project Five",desc:"Short description of what this piece is and your role.",cat:"Editing",year:"2025",url:"",thumb:"",preview:""},
+  {title:"Project Six",desc:"Short description of what this piece is and your role.",cat:"Motion",year:"2025",url:"",thumb:"",preview:""}
 ];
 /* ═══════════════════════════════════════ */
 const $=s=>document.querySelector(s),yt=/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/;
@@ -270,19 +314,15 @@ function open(i,list=cur){
 function close(){$("#md").classList.remove("o");$("#fr").innerHTML="";document.body.style.overflow="";history.replaceState(null,"",location.pathname)}
 const step=d=>{if(cur.length)open((idx+d+cur.length)%cur.length)};
 $("#grid").onclick=e=>{const c=e.target.closest(".card");if(c)open(+c.dataset.i)};
-$("#reelBox").onclick=()=>open(0,[{title:"Showreel 2026",desc:"A taste of what's inside the vault.",url:CONFIG.reel.url}]);
-if(CONFIG.reel.thumb){$("#reelImg").src=CONFIG.reel.thumb;$("#reelImg").hidden=false}
+if($("#reelBox")){$("#reelBox").onclick=()=>open(0,[{title:"Showreel 2026",desc:"A taste of what's inside the vault.",url:CONFIG.reel.url}]);
+if(CONFIG.reel.thumb){$("#reelImg").src=CONFIG.reel.thumb;$("#reelImg").hidden=false}}
 $("#cl").onclick=close;$("#pv").onclick=()=>step(-1);$("#nx").onclick=()=>step(1);
 $("#md").onclick=e=>{if(e.target.id=="md")close()};
 addEventListener("keydown",e=>{if(!$("#md").classList.contains("o"))return;if(e.key=="Escape")close();if(e.key=="ArrowRight")step(1);if(e.key=="ArrowLeft")step(-1)});
 function toast(t){const x=$("#ts");x.textContent=t;x.classList.add("s");setTimeout(()=>x.classList.remove("s"),2200)}
 $("#sh").onclick=()=>navigator.clipboard.writeText(location.href).then(()=>toast("LINK COPIED"),()=>toast("COPY FAILED"));
 /* contact */
-$("#soc").innerHTML=`<button id="em"><span>${CONFIG.email}</span><span>COPY</span></button>`+CONFIG.socials.map(s=>`<a href="${s[1]}" target="_blank" rel="noopener"><span>${s[0]}</span><span>↗</span></a>`).join("");
-$("#em").onclick=()=>navigator.clipboard.writeText(CONFIG.email).then(()=>toast("EMAIL COPIED"));
-$("#f").onsubmit=async e=>{e.preventDefault();const d=Object.fromEntries(new FormData(e.target));
-  if(CONFIG.formspree){try{const r=await fetch(CONFIG.formspree,{method:"POST",headers:{Accept:"application/json"},body:JSON.stringify(d)});if(r.ok){toast("MESSAGE SENT ✓");e.target.reset();return}}catch(_){}}
-  location.href=`mailto:${CONFIG.email}?subject=${encodeURIComponent("Project inquiry: "+d.type)}&body=${encodeURIComponent(`${d.msg}\n\nName: ${d.name}\nEmail: ${d.email}\nBudget: ${d.budget}`)}`};
+$("#soc").innerHTML=CONFIG.socials.map(s=>`<a href="${s[1]}" target="_blank" rel="noopener"><span class="pl">${s[0]}</span><span>↗</span><small>${s[2]}</small></a>`).join("");
 /* ui */
 $("#yr").textContent=new Date().getFullYear();
 addEventListener("scroll",()=>{const h=document.documentElement;$("#pg").style.width=scrollY/(h.scrollHeight-innerHeight)*100+"%";$("#nav").classList.toggle("s",scrollY>40)},{passive:true});
@@ -292,15 +332,32 @@ addEventListener("mousemove",e=>{mx=e.clientX;my=e.clientY;cu.style.left=mx+"px"
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.1});
 document.querySelectorAll(".rv").forEach(e=>io.observe(e));
 document.querySelectorAll("[data-n]").forEach(el=>{const n=+el.dataset.n,s=el.dataset.s;let v=0;const t=setInterval(()=>{v+=Math.ceil(n/40);if(v>=n){v=n;clearInterval(t)}el.textContent=v+(v==n?s:"")},35)});
+/* hero: rotating wireframe torus */
+const T=[],U=36,V=12;for(let i=0;i<U;i++)for(let j=0;j<V;j++){const u=i/U*6.2832,v=j/V*6.2832,r=1+.4*Math.cos(v);T.push([r*Math.cos(u),r*Math.sin(u),.4*Math.sin(v)])}
+let ax=0,ay=0,tx=0,ty=0;
+addEventListener("mousemove",e=>{tx=(e.clientX/innerWidth-.5)*.9;ty=(e.clientY/innerHeight-.5)*.9});
+function torus(){ax+=.004;ay+=.006;const s=Math.min(W,H)*(W>900?.3:.27),ox=W>900?W*.72:W*.5,oy=H*.5,
+cX=Math.cos(ax+ty),sX=Math.sin(ax+ty),cY=Math.cos(ay+tx),sY=Math.sin(ay+tx);
+const P=T.map(([x,y,z])=>{const y1=y*cX-z*sX,z1=y*sX+z*cX,x1=x*cY+z1*sY,z2=-x*sY+z1*cY,k=3/(3+z2);return[ox+x1*s*k,oy+y1*s*k,z2]});
+cx.lineWidth=.7;for(let i=0;i<U;i++)for(let j=0;j<V;j++){const a=P[i*V+j];[P[((i+1)%U)*V+j],P[i*V+(j+1)%V]].forEach(q=>{cx.strokeStyle=`rgba(0,245,255,${.1+.3*(a[2]+1.5)/3})`;cx.beginPath();cx.moveTo(a[0],a[1]);cx.lineTo(q[0],q[1]);cx.stroke()})}}
 /* hero canvas: drifting node network */
 const cv=$("#cv"),cx=cv.getContext("2d");let W,H,pts=[];
 function rs(){W=cv.width=innerWidth;H=cv.height=cv.parentElement.offsetHeight;pts=Array.from({length:Math.min(80,W/16|0)},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35}))}
 addEventListener("resize",rs);rs();
-(function a(){cx.clearRect(0,0,W,H);pts.forEach((p,i)=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+(function a(){cx.clearRect(0,0,W,H);torus();pts.forEach((p,i)=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
   cx.fillStyle="rgba(0,245,255,.7)";cx.fillRect(p.x,p.y,2,2);
   for(let j=i+1;j<pts.length;j++){const q=pts[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<130){cx.strokeStyle=`rgba(0,245,255,${.16*(1-d/130)})`;cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(q.x,q.y);cx.stroke()}}});requestAnimationFrame(a)})();
 render();
 addEventListener("load",()=>{setTimeout(()=>{$("#ld").classList.add("x");const m=location.hash.match(/^#p(\d+)$/);if(m&&PROJECTS[m[1]])open(+m[1],PROJECTS)},500)});
+
+/* v2 extras */
+$("#pipe").innerHTML=PIPE.map(p=>`<div class="pn"><div class="ic">${p[4]}</div><small>${p[1]}</small><h3>${p[0]}</h3><p>${p[2]}</p>${p[3].map(k=>`<div class="sb"><span>${k[0]}<b class="m" style="font-weight:400;color:var(--cyan)">${k[1]}</b></span><i><u style="--w:${k[1]}%"></u></i></div>`).join("")}</div>`).join("");
+const mq=["3D & ANIMATION","MOTION & VFX","EDITING & FINISHING","BLENDER","AFTER EFFECTS","PREMIERE PRO"].map(t=>`<span>${t}</span><b>✦</b>`).join("");$("#mqi").innerHTML=mq+mq;
+setInterval(()=>{const f=Math.floor(performance.now()/41.67),p=n=>String(n).padStart(2,"0");$("#tc").textContent=`${p(Math.floor(f/86400)%100)}:${p(Math.floor(f/1440)%60)}:${p(Math.floor(f/24)%60)}:${p(f%24)}`},42);
+$("#grid").addEventListener("mousemove",e=>{const c=e.target.closest(".card");if(!c)return;const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(900px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-6px)`});
+$("#grid").addEventListener("mouseout",e=>{const c=e.target.closest(".card");if(c)c.style.transform=""});
+const ids=["work","services","pipeline","process"];
+addEventListener("scroll",()=>{let a="";ids.forEach(i=>{if($("#"+i)&&$("#"+i).offsetTop<scrollY+220)a=i});document.querySelectorAll("nav li a").forEach(l=>l.classList.toggle("on",l.getAttribute("href")=="#"+a))},{passive:true});
 </script>
 </body>
 </html>
